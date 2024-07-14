@@ -1,7 +1,6 @@
 <?php
 session_start();
-
-if(!isset($_SESSION['user_id'])){
+if(isset($_SESSION['user_id'])){
     header("Location:login.php");
     exit();
 }
@@ -137,7 +136,7 @@ if(!isset($_SESSION['user_id'])){
             
             <li class="nav-item">
                 <a class="nav-link" href="users.php">
-                    <i class="fa-solid fa-user  "></i>
+                    <i class="fa-solid fa-user"></i>
                     <span>Users</span></a>
             </li>
 

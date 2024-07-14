@@ -129,14 +129,14 @@ session_start();
             </li>
 
             <!-- Nav Item - Tables -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="tables.php">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Students</span></a>
             </li>
 
             <!--Nav Items - Users  -->
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="users.php">
                     <i class="fas fa-fw fa-users"></i>
                     <span>Users</span></a>

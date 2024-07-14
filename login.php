@@ -21,44 +21,30 @@
 </head>
 
 <body class="bg-gradient-primary">
-
     <div class="container">
-
         <!-- Outer Row -->
         <div class="row justify-content-center">
-
             <div class="col-xl-10 col-lg-12 col-md-9">
-
                 <div class="card o-hidden border-0 shadow-lg my-5">
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
-
-                    <?php
-                        session_start();
-
-                        // Check if the user is already logged in, redirect to index.php if so
-                        // if(isset($_SESSION['user_id'])) {
-                        //     header("Location: index.php");
-                        //     exit();
-                        // }
+                        <?php
+                        session_start(); // Start the session
 
                         if ($_SERVER['REQUEST_METHOD'] == "POST") {
                             if (isset($_POST['username']) && isset($_POST['password'])) {
-                                $form_username = $_POST['username'];
-                                $form_password = $_POST['password'];
+                                $username = $_POST['username'];
+                                $password = $_POST['password'];
 
-                                // Check if the submitted credentials are correct
-                                if ($form_username === "admin" && $form_password === "12345678") {
-                                    // Set session and redirect to index.php
-                                    
-                                    $_SESSION['user'] = $record; // Assuming user ID 1 for successful login
-                                    if ($RECORD['role'] == 'student') {
-                                        header("Location: student.php");
-                                        exit();
-                                    }else if($RECORD['role'] == 'supervisor'){
-                                        header("Location: supervisor.php");
-                                        exit();
-                                    }
+                                // Simulate authentication
+                                // Replace this with your actual authentication logic (e.g., database check)
+                                if ($username === "admin" && $password === "1234") {
+                                    // Set session variables
+                                    $_SESSION['username'] = $username;
+
+                                    // Redirect to index.php
+                                    header("Location: index.php");
+                                    exit(); // Ensure no further code execution after redirection
                                 } else {
                                     $error = "Invalid username or password.";
                                 }
@@ -69,15 +55,15 @@
                         ?>
 
                         <!-- Your HTML login form with error handling -->
-
-
-
                         <div class="row">
                             <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                        <?php if (isset($error)) : ?>
+                                            <p class="text-danger"><?php echo $error; ?></p>
+                                        <?php endif; ?>
                                     </div>
                                     <form class="user" method="POST" action="">
                                         <div class="form-group">
@@ -103,8 +89,6 @@
                                             <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
                                         </a>
                                     </form>
-
-
                                     <hr>
                                     <div class="text-center">
                                         <a class="small" href="forgot-password.html">Forgot Password?</a>
@@ -117,11 +101,8 @@
                         </div>
                     </div>
                 </div>
-
             </div>
-
         </div>
-
     </div>
 
     <!-- Bootstrap core JavaScript-->
